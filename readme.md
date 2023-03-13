@@ -1,6 +1,8 @@
 # 介绍
 做一个自动上传服务器的脚本工具 🔧
 
+[blog](https://blog.csdn.net/daddykei/article/details/129497959?spm=1001.2014.3001.5502)
+
 [仓库地址](https://github.com/ThinkerWing/upload-tools)
 
 
