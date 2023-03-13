@@ -1,6 +1,7 @@
 const child_process = require("child_process");
 const { NodeSSH } = require("node-ssh");
 const path = require("path");
+const fs = require("fs");
 
 type Config = {
   host: string;
@@ -44,9 +45,15 @@ async function uploadToServer(config: Config) {
   };
 
   const remotePath = config.remotePath;
-  const localPath = path.join(path.dirname(__dirname), "dist");
 
+  // 本地dist文件夹路径
+  const localPath = path.join(process.cwd(), "dist");
   console.log(localPath);
+
+  if (!fs.existsSync(localPath)) {
+    console.error(`本地目录 ${localPath} 不存在，请在根目录执行`);
+    process.exit(1);
+  }
 
   const ssh = new NodeSSH();
   try {
